@@ -107,14 +107,13 @@ const About: React.FC = () => {
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 0.5 }}
-      className="max-w-4xl mx-auto pt-20 bg-nomad-background text-nomad-highlight font-heading"
+      className="max-w-4xl mx-auto pt-20 pb-16 px-4 sm:px-6 lg:px-8 bg-nomad-background text-nomad-highlight font-heading"
     >
-      <h2 className="text-3xl font-bold mb-8 flex items-center">
+      <h2 className="text-3xl font-bold mb-10 flex items-center justify-center">
         <span className="text-nomad-accent font-mono mr-2">01.</span>
         About Me
       </h2>
-      
-      <div className="space-y-12">
+      <div className="flex flex-col gap-12">
         {/* Professional Summary */}
         <section>
           <p className="text-nomad-highlight text-lg mb-6">
@@ -127,21 +126,17 @@ const About: React.FC = () => {
         {/* Professional Experience */}
         <section>
           <h3 className="text-2xl font-bold mb-6 text-nomad-highlight">Professional Experience</h3>
-          <div className="space-y-8">
-            {experiences.map((exp, index) => (
-              <div key={index} className="bg-nomad-primary/80 p-6 rounded-xl shadow-glow">
-                <h4 className="text-xl font-bold text-nomad-highlight mb-1">
-                  <span className="text-nomad-accent font-mono mr-2">{exp.title}</span>
-                  <span className="text-nomad-highlight mx-2">@</span>
-                  <span className="text-nomad-highlight">{exp.company}</span>
-                  <span className="text-nomad-accent text-sm ml-2 font-mono">
-                    <span dangerouslySetInnerHTML={{ __html: highlightNumbers(exp.period) }} />
-                  </span>
-                </h4>
-                <ul className="mt-2 space-y-2">
+          <div className="flex flex-col gap-6">
+            {experiences.map((exp, idx) => (
+              <div key={idx} className="bg-nomad-primary/60 rounded-lg p-6">
+                <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-2">
+                  <h4 className="text-lg font-bold text-nomad-accent mb-1 md:mb-0">{exp.title}</h4>
+                  <span className="text-nomad-accent font-mono text-sm">{exp.period}</span>
+                </div>
+                <p className="text-nomad-highlight mb-2 font-semibold">{exp.company}</p>
+                <ul className="list-disc ml-6 space-y-1 text-nomad-highlight text-sm">
                   {exp.highlights.map((highlight, i) => (
-                    <li key={i} className="flex items-start text-nomad-highlight">
-                      <span className="text-nomad-accent mr-2 mt-1">▹</span>
+                    <li key={i}>
                       <span dangerouslySetInnerHTML={{ __html: highlightNumbers(highlight) }} />
                     </li>
                   ))}
@@ -196,29 +191,31 @@ const About: React.FC = () => {
         {/* Publications */}
         <section>
           <h3 className="text-2xl font-bold mb-6 text-nomad-highlight">Publications</h3>
-          {publications.map((pub, index) => (
-            <div key={index} className="bg-nomad-primary/60 p-4 rounded-lg">
-              <h4 className="text-lg font-bold text-nomad-highlight mb-2">{pub.title}</h4>
-              <p className="text-nomad-highlight mb-2">{pub.publisher}</p>
-              <p className="text-nomad-highlight mb-2">
-                <span dangerouslySetInnerHTML={{ __html: highlightNumbers(pub.impact) }} />
-              </p>
-              <a 
-                href={pub.link}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-nomad-accent hover:underline"
-              >
-                DOI: {pub.doi}
-              </a>
-            </div>
-          ))}
+          <div className="flex flex-col gap-6">
+            {publications.map((pub, index) => (
+              <div key={index} className="bg-nomad-primary/60 p-4 rounded-lg">
+                <h4 className="text-lg font-bold text-nomad-highlight mb-2">{pub.title}</h4>
+                <p className="text-nomad-highlight mb-2">{pub.publisher}</p>
+                <p className="text-nomad-highlight mb-2">
+                  <span dangerouslySetInnerHTML={{ __html: highlightNumbers(pub.impact) }} />
+                </p>
+                <a 
+                  href={pub.link}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-nomad-accent hover:underline"
+                >
+                  DOI: {pub.doi}
+                </a>
+              </div>
+            ))}
+          </div>
         </section>
 
         {/* Certificates */}
         <section>
           <h3 className="text-2xl font-bold mb-6 text-nomad-highlight">Certificates</h3>
-          <div className="grid md:grid-cols-2 gap-4">
+          <div className="grid md:grid-cols-2 gap-6">
             {certificates.map((cert, index) => (
               <div key={index} className="bg-nomad-primary/60 p-4 rounded-lg">
                 <h4 className="text-lg font-bold text-nomad-highlight mb-1">{cert.name}</h4>

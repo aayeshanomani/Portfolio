@@ -1,5 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
+import { Link } from 'react-router-dom';
 
 const Home: React.FC = () => {
   return (
@@ -21,17 +22,17 @@ const Home: React.FC = () => {
           </p>
           <div className="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4">
             <a
-              href="#projects"
+              href="/projects"
               className="px-6 py-3 bg-nomad-accent text-nomad-background rounded hover:bg-nomad-accent/80 transition-colors duration-300 text-center"
             >
               View My Work
             </a>
-            <a
-              href="mailto:aayeshanomani@gmail.com"
+            <Link
+              to="/contact"
               className="px-6 py-3 border border-nomad-highlight text-nomad-highlight rounded hover:bg-nomad-highlight/10 transition-colors duration-300 text-center"
             >
               Get In Touch
-            </a>
+            </Link>
           </div>
           <div className="mt-8 flex items-center text-nomad-highlight">
             <span>Bangalore, India</span>

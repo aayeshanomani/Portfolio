@@ -29,20 +29,17 @@ const Contact: React.FC = () => {
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 0.5 }}
-      className="max-w-3xl mx-auto pt-20 bg-nomad-background text-nomad-highlight font-heading"
+      className="max-w-xl mx-auto pt-20 pb-16 px-4 sm:px-6 lg:px-8 bg-nomad-background text-nomad-highlight font-heading"
     >
-      <h2 className="text-3xl font-bold mb-8 flex items-center">
+      <h2 className="text-3xl font-bold mb-10 flex items-center justify-center">
         <span className="text-nomad-accent font-mono mr-2">04.</span>
         Get In Touch
       </h2>
-
-      <p className="text-nomad-highlight mb-8 text-center">
-        I'm currently open to new opportunities and collaborations. Whether you have
-        a question or just want to say hi, I'll try my best to get back to you!
+      <p className="text-nomad-highlight mb-8 text-center text-lg">
+        I'm currently open to new opportunities and collaborations. Whether you have a question or just want to say hi, I'll try my best to get back to you!
       </p>
-
-      <form onSubmit={handleSubmit} className="bg-nomad-primary/80 p-8 rounded-xl shadow-glow">
-        <div className="grid md:grid-cols-2 gap-6 mb-6">
+      <form onSubmit={handleSubmit} className="bg-nomad-primary/80 p-8 rounded-xl shadow-glow flex flex-col gap-6">
+        <div className="grid md:grid-cols-2 gap-6">
           <input
             type="text"
             id="name"
@@ -50,6 +47,7 @@ const Contact: React.FC = () => {
             value={formData.name}
             onChange={handleChange}
             required
+            placeholder="Your Name"
             className="w-full p-3 rounded-lg bg-nomad-background text-nomad-highlight border border-nomad-highlight focus:ring-2 focus:ring-nomad-accent outline-none font-mono"
           />
           <input
@@ -59,10 +57,10 @@ const Contact: React.FC = () => {
             value={formData.email}
             onChange={handleChange}
             required
+            placeholder="Your Email"
             className="w-full p-3 rounded-lg bg-nomad-background text-nomad-highlight border border-nomad-highlight focus:ring-2 focus:ring-nomad-accent outline-none font-mono"
           />
         </div>
-
         <textarea
           id="message"
           name="message"
@@ -70,9 +68,9 @@ const Contact: React.FC = () => {
           value={formData.message}
           onChange={handleChange}
           required
-          className="w-full p-3 rounded-lg bg-nomad-background text-nomad-highlight border border-nomad-highlight focus:ring-2 focus:ring-nomad-accent outline-none font-mono mb-6"
+          placeholder="Your Message"
+          className="w-full p-3 rounded-lg bg-nomad-background text-nomad-highlight border border-nomad-highlight focus:ring-2 focus:ring-nomad-accent outline-none font-mono"
         />
-
         <div className="text-center">
           <button
             type="submit"
@@ -82,14 +80,29 @@ const Contact: React.FC = () => {
           </button>
         </div>
       </form>
-
-      <div className="mt-16 text-center">
+      <div className="mt-16 text-center flex flex-col items-center gap-2">
         <p className="text-nomad-highlight mb-4">Or reach out directly:</p>
         <a
-          href="mailto:your.email@example.com"
-          className="text-nomad-accent hover:underline font-mono"
+          href="mailto:aayeshanomani@gmail.com"
+          className="text-nomad-accent hover:underline font-mono text-base"
         >
-          your.email@example.com
+          aayeshanomani@gmail.com
+        </a>
+        <a
+          href="https://github.com/aayeshanomani"
+          className="text-nomad-accent hover:underline font-mono text-base"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          github.com/aayeshanomani
+        </a>
+        <a
+          href="https://www.linkedin.com/in/aayesha-nomani-09031016b/"
+          className="text-nomad-accent hover:underline font-mono text-base"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          linkedin.com/in/aayesha-nomani-09031016b
         </a>
       </div>
     </motion.div>

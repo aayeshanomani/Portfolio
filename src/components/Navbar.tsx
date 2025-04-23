@@ -34,7 +34,7 @@ const Navbar: React.FC = () => {
               </Link>
             ))}
             <a
-              href="/resume.pdf"
+              href="/assets/aayesha-resume.pdf"
               className="block px-3 py-2 text-nomad-accent hover:text-nomad-highlight transition-colors duration-300 font-mono"
               target="_blank"
               rel="noopener noreferrer"
@@ -83,7 +83,7 @@ const Navbar: React.FC = () => {
                 </Link>
               ))}
               <a
-                href="/resume.pdf"
+                href="/assets/aayesha-resume.pdf"
                 className="block px-3 py-2 text-nomad-accent hover:text-nomad-highlight transition-colors duration-300"
                 target="_blank"
                 rel="noopener noreferrer"
