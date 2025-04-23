@@ -97,22 +97,27 @@ const About: React.FC = () => {
     }
   ];
 
+  // Helper to wrap numbers in highlight span
+  const highlightNumbers = (text: string) => {
+    return text.replace(/(\d+[\d,.]*\+?|\d+%|\d+\.\d+%?|\d+M\+?|\d+K\+?)/g, '<span class="highlight-number">$1</span>');
+  };
+
   return (
     <motion.div
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 0.5 }}
-      className="max-w-4xl mx-auto pt-20"
+      className="max-w-4xl mx-auto pt-20 bg-nomad-background text-nomad-highlight font-heading"
     >
       <h2 className="text-3xl font-bold mb-8 flex items-center">
-        <span className="text-secondary font-mono mr-2">01.</span>
+        <span className="text-nomad-accent font-mono mr-2">01.</span>
         About Me
       </h2>
       
       <div className="space-y-12">
         {/* Professional Summary */}
         <section>
-          <p className="text-textSecondary text-lg mb-6">
+          <p className="text-nomad-highlight text-lg mb-6">
             Results-driven Software Development Engineer II at AWS with expertise in building scalable cloud solutions 
             and innovative retail technologies. Proven track record of delivering high-impact projects that serve 
             millions of users while maintaining exceptional performance metrics.
@@ -121,23 +126,23 @@ const About: React.FC = () => {
 
         {/* Professional Experience */}
         <section>
-          <h3 className="text-2xl font-bold mb-6 text-textPrimary">Professional Experience</h3>
+          <h3 className="text-2xl font-bold mb-6 text-nomad-highlight">Professional Experience</h3>
           <div className="space-y-8">
             {experiences.map((exp, index) => (
-              <div key={index} className="mb-6">
-                <h4 className="text-xl font-bold text-textPrimary flex flex-wrap items-baseline">
-                  <span>{exp.title}</span>
-                  <span className="text-secondary mx-2">@</span>
-                  <span>{exp.company}</span>
-                  <span className="text-textSecondary text-sm ml-2 font-mono">
-                    {exp.period}
+              <div key={index} className="bg-nomad-primary/80 p-6 rounded-xl shadow-glow">
+                <h4 className="text-xl font-bold text-nomad-highlight mb-1">
+                  <span className="text-nomad-accent font-mono mr-2">{exp.title}</span>
+                  <span className="text-nomad-highlight mx-2">@</span>
+                  <span className="text-nomad-highlight">{exp.company}</span>
+                  <span className="text-nomad-accent text-sm ml-2 font-mono">
+                    <span dangerouslySetInnerHTML={{ __html: highlightNumbers(exp.period) }} />
                   </span>
                 </h4>
                 <ul className="mt-2 space-y-2">
                   {exp.highlights.map((highlight, i) => (
-                    <li key={i} className="flex items-start text-textSecondary">
-                      <span className="text-secondary mr-2 mt-1">▹</span>
-                      {highlight}
+                    <li key={i} className="flex items-start text-nomad-highlight">
+                      <span className="text-nomad-accent mr-2 mt-1">▹</span>
+                      <span dangerouslySetInnerHTML={{ __html: highlightNumbers(highlight) }} />
                     </li>
                   ))}
                 </ul>
@@ -148,15 +153,15 @@ const About: React.FC = () => {
 
         {/* Skills */}
         <section>
-          <h3 className="text-2xl font-bold mb-6 text-textPrimary">Technical Skills</h3>
+          <h3 className="text-2xl font-bold mb-6 text-nomad-highlight">Technical Skills</h3>
           <div className="grid md:grid-cols-2 gap-6">
             {Object.entries(skills).map(([category, items]) => (
-              <div key={category} className="bg-primary/10 p-4 rounded-lg">
-                <h4 className="text-lg font-bold text-secondary mb-2">{category}</h4>
+              <div key={category} className="bg-nomad-primary/60 p-4 rounded-lg">
+                <h4 className="text-lg font-bold text-nomad-accent mb-2">{category}</h4>
                 <ul className="space-y-1">
                   {items.map((skill) => (
-                    <li key={skill} className="flex items-center text-textSecondary">
-                      <span className="text-secondary mr-2">▹</span>
+                    <li key={skill} className="flex items-center text-nomad-highlight">
+                      <span className="text-nomad-accent mr-2">▹</span>
                       {skill}
                     </li>
                   ))}
@@ -168,20 +173,20 @@ const About: React.FC = () => {
 
         {/* Education */}
         <section>
-          <h3 className="text-2xl font-bold mb-6 text-textPrimary">Education</h3>
-          <div className="bg-primary/10 p-4 rounded-lg">
-            <h4 className="text-xl font-bold text-textPrimary">
+          <h3 className="text-2xl font-bold mb-6 text-nomad-highlight">Education</h3>
+          <div className="bg-nomad-primary/60 p-4 rounded-lg">
+            <h4 className="text-xl font-bold text-nomad-highlight">
               {education.degree}
-              <span className="text-secondary text-sm ml-2 font-mono">
-                {education.period}
+              <span className="text-nomad-accent text-sm ml-2 font-mono">
+                <span dangerouslySetInnerHTML={{ __html: highlightNumbers(education.period) }} />
               </span>
             </h4>
-            <p className="text-textSecondary mb-2">{education.school}</p>
+            <p className="text-nomad-highlight mb-2">{education.school}</p>
             <ul className="space-y-1">
               {education.achievements.map((achievement, index) => (
-                <li key={index} className="flex items-center text-textSecondary">
-                  <span className="text-secondary mr-2">▹</span>
-                  {achievement}
+                <li key={index} className="flex items-center text-nomad-highlight">
+                  <span className="text-nomad-accent mr-2">▹</span>
+                  <span dangerouslySetInnerHTML={{ __html: highlightNumbers(achievement) }} />
                 </li>
               ))}
             </ul>
@@ -190,17 +195,19 @@ const About: React.FC = () => {
 
         {/* Publications */}
         <section>
-          <h3 className="text-2xl font-bold mb-6 text-textPrimary">Publications</h3>
+          <h3 className="text-2xl font-bold mb-6 text-nomad-highlight">Publications</h3>
           {publications.map((pub, index) => (
-            <div key={index} className="bg-primary/10 p-4 rounded-lg">
-              <h4 className="text-lg font-bold text-textPrimary mb-2">{pub.title}</h4>
-              <p className="text-textSecondary mb-2">{pub.publisher}</p>
-              <p className="text-textSecondary mb-2">{pub.impact}</p>
+            <div key={index} className="bg-nomad-primary/60 p-4 rounded-lg">
+              <h4 className="text-lg font-bold text-nomad-highlight mb-2">{pub.title}</h4>
+              <p className="text-nomad-highlight mb-2">{pub.publisher}</p>
+              <p className="text-nomad-highlight mb-2">
+                <span dangerouslySetInnerHTML={{ __html: highlightNumbers(pub.impact) }} />
+              </p>
               <a 
                 href={pub.link}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-secondary hover:underline"
+                className="text-nomad-accent hover:underline"
               >
                 DOI: {pub.doi}
               </a>
@@ -210,18 +217,20 @@ const About: React.FC = () => {
 
         {/* Certificates */}
         <section>
-          <h3 className="text-2xl font-bold mb-6 text-textPrimary">Certificates</h3>
+          <h3 className="text-2xl font-bold mb-6 text-nomad-highlight">Certificates</h3>
           <div className="grid md:grid-cols-2 gap-4">
             {certificates.map((cert, index) => (
-              <div key={index} className="bg-primary/10 p-4 rounded-lg">
-                <h4 className="text-lg font-bold text-textPrimary mb-1">{cert.name}</h4>
-                <p className="text-textSecondary">
+              <div key={index} className="bg-nomad-primary/60 p-4 rounded-lg">
+                <h4 className="text-lg font-bold text-nomad-highlight mb-1">{cert.name}</h4>
+                <p className="text-nomad-highlight">
                   {cert.issuer}
-                  <span className="text-secondary ml-2">{cert.year}</span>
+                  <span className="text-nomad-accent ml-2">
+                    <span dangerouslySetInnerHTML={{ __html: highlightNumbers(cert.year) }} />
+                  </span>
                 </p>
                 <ul className="mt-2">
                   {cert.skills.map((skill, i) => (
-                    <li key={i} className="text-sm text-textSecondary">• {skill}</li>
+                    <li key={i} className="text-sm text-nomad-highlight">• {skill}</li>
                   ))}
                 </ul>
               </div>

@@ -35,10 +35,10 @@ const Projects: React.FC = () => {
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 0.5 }}
-      className="max-w-6xl mx-auto pt-20"
+      className="max-w-5xl mx-auto pt-20 bg-nomad-background text-nomad-highlight font-heading"
     >
-      <h2 className="text-3xl font-bold mb-12 flex items-center">
-        <span className="text-secondary font-mono mr-2">02.</span>
+      <h2 className="text-3xl font-bold mb-8 flex items-center">
+        <span className="text-nomad-accent font-mono mr-2">02.</span>
         Some Things I've Built
       </h2>
 
@@ -68,16 +68,16 @@ const Projects: React.FC = () => {
             <div className={`flex flex-col justify-center ${
               index % 2 === 1 ? 'md:order-1 md:items-end' : ''
             }`}>
-              <p className="font-mono text-secondary mb-2">Featured Project</p>
+              <p className="font-mono text-nomad-accent mb-2">Featured Project</p>
               <h3 className="text-2xl font-bold mb-4">{project.title}</h3>
-              <div className="bg-primary/90 p-6 rounded-lg shadow-xl mb-4">
-                <p className="text-textSecondary">{project.description}</p>
+              <div className="bg-nomad-primary/80 p-6 rounded-lg shadow-glow mb-4">
+                <p className="text-nomad-highlight">{project.description}</p>
               </div>
               <ul className={`flex flex-wrap gap-4 mb-8 ${
                 index % 2 === 1 ? 'md:justify-end' : ''
               }`}>
                 {project.technologies.map((tech) => (
-                  <li key={tech} className="font-mono text-textSecondary text-sm">
+                  <li key={tech} className="font-mono text-nomad-accent text-sm">
                     {tech}
                   </li>
                 ))}
@@ -88,7 +88,7 @@ const Projects: React.FC = () => {
                     href={project.github}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-textPrimary hover:text-secondary"
+                    className="text-nomad-highlight hover:text-nomad-accent"
                   >
                     GitHub
                   </a>
@@ -98,7 +98,7 @@ const Projects: React.FC = () => {
                     href={project.demo}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-textPrimary hover:text-secondary"
+                    className="text-nomad-highlight hover:text-nomad-accent"
                   >
                     Live Demo
                   </a>

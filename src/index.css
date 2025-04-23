@@ -11,12 +11,13 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: #0A192F;
+  background-color: #0f1117;
+  color: #94a3b8;
 }
 
 ::selection {
-  background-color: #64FFDA;
-  color: #0A192F;
+  background-color: #38bdf8;
+  color: #0f1117;
 }
 
 ::-webkit-scrollbar {
@@ -24,15 +25,24 @@ body {
 }
 
 ::-webkit-scrollbar-track {
-  background: #0A192F;
+  background: #0f1117;
 }
 
 ::-webkit-scrollbar-thumb {
   background-color: #8892B0;
-  border: 3px solid #0A192F;
+  border: 3px solid #0f1117;
   border-radius: 10px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
   background-color: #CCD6F6;
+}
+
+/* Highlight numbers in About section */
+.highlight-number {
+  color: #38bdf8;
+  font-weight: 600;
+  background: rgba(56,189,248,0.08);
+  border-radius: 4px;
+  padding: 0 4px;
 }

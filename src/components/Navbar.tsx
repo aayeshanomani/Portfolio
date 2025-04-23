@@ -13,39 +13,51 @@ const Navbar: React.FC = () => {
   ];
 
   return (
-    <nav className="fixed w-full bg-primary/90 backdrop-blur-sm z-50">
+    <nav className="fixed w-full bg-nomad-primary/90 backdrop-blur-sm z-50 font-heading">
       <div className="container mx-auto px-4">
         <div className="flex justify-between items-center h-16">
-          <Link to="/" className="font-mono text-secondary text-xl">
+          <Link to="/" className="font-mono text-nomad-accent text-xl">
             <span className="font-bold">{'<'}</span>
             Portfolio
             <span className="font-bold">{'/>'}</span>
           </Link>
 
           {/* Desktop Menu */}
-          <div className="hidden md:flex space-x-8">
+          <div className="hidden md:flex gap-8 items-center">
             {navItems.map((item) => (
               <Link
                 key={item.name}
                 to={item.path}
-                className="text-textSecondary hover:text-secondary transition-colors duration-300"
+                className="text-nomad-highlight hover:text-nomad-accent font-mono transition-colors duration-300"
               >
                 {item.name}
               </Link>
             ))}
             <a
               href="/resume.pdf"
-              className="px-4 py-2 border border-secondary text-secondary rounded hover:bg-secondary/10 transition-colors duration-300"
+              className="block px-3 py-2 text-nomad-accent hover:text-nomad-highlight transition-colors duration-300 font-mono"
               target="_blank"
               rel="noopener noreferrer"
             >
               Resume
             </a>
+            {/* YouTube Channel Link */}
+            <a
+              href="https://www.youtube.com/channel/UCxr6oN6wGDOGzvTZxXqXxfA"
+              className="ml-2 text-nomad-accent hover:text-nomad-highlight transition-colors duration-300"
+              target="_blank"
+              rel="noopener noreferrer"
+              title="My YouTube Channel (theme inspired!)"
+            >
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="inline w-6 h-6 align-text-bottom">
+                <path d="M23.498 6.186a2.994 2.994 0 0 0-2.112-2.117C19.393 3.5 12 3.5 12 3.5s-7.393 0-9.386.569A2.994 2.994 0 0 0 .502 6.186C0 8.19 0 12 0 12s0 3.81.502 5.814a2.994 2.994 0 0 0 2.112 2.117C4.607 20.5 12 20.5 12 20.5s7.393 0 9.386-.569a2.994 2.994 0 0 0 2.112-2.117C24 15.81 24 12 24 12s0-3.81-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
+              </svg>
+            </a>
           </div>
 
           {/* Mobile Menu Button */}
           <button
-            className="md:hidden text-textSecondary"
+            className="md:hidden text-nomad-highlight"
             onClick={() => setIsOpen(!isOpen)}
           >
             {isOpen ? (
@@ -64,7 +76,7 @@ const Navbar: React.FC = () => {
                 <Link
                   key={item.name}
                   to={item.path}
-                  className="block px-3 py-2 text-textSecondary hover:text-secondary transition-colors duration-300"
+                  className="block px-3 py-2 text-nomad-highlight hover:text-nomad-accent transition-colors duration-300"
                   onClick={() => setIsOpen(false)}
                 >
                   {item.name}
@@ -72,7 +84,7 @@ const Navbar: React.FC = () => {
               ))}
               <a
                 href="/resume.pdf"
-                className="block px-3 py-2 text-secondary hover:text-secondary transition-colors duration-300"
+                className="block px-3 py-2 text-nomad-accent hover:text-nomad-highlight transition-colors duration-300"
                 target="_blank"
                 rel="noopener noreferrer"
                 onClick={() => setIsOpen(false)}

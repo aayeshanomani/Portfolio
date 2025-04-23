@@ -29,26 +29,20 @@ const Contact: React.FC = () => {
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 0.5 }}
-      className="max-w-2xl mx-auto pt-20"
+      className="max-w-3xl mx-auto pt-20 bg-nomad-background text-nomad-highlight font-heading"
     >
       <h2 className="text-3xl font-bold mb-8 flex items-center">
-        <span className="text-secondary font-mono mr-2">04.</span>
+        <span className="text-nomad-accent font-mono mr-2">04.</span>
         Get In Touch
       </h2>
 
-      <p className="text-textSecondary mb-8 text-center">
+      <p className="text-nomad-highlight mb-8 text-center">
         I'm currently open to new opportunities and collaborations. Whether you have
         a question or just want to say hi, I'll try my best to get back to you!
       </p>
 
-      <form onSubmit={handleSubmit} className="space-y-6">
-        <div>
-          <label
-            htmlFor="name"
-            className="block text-textSecondary mb-2 font-mono"
-          >
-            Name
-          </label>
+      <form onSubmit={handleSubmit} className="bg-nomad-primary/80 p-8 rounded-xl shadow-glow">
+        <div className="grid md:grid-cols-2 gap-6 mb-6">
           <input
             type="text"
             id="name"
@@ -56,17 +50,8 @@ const Contact: React.FC = () => {
             value={formData.name}
             onChange={handleChange}
             required
-            className="w-full bg-primary/30 border border-textSecondary/20 rounded-lg px-4 py-2 text-textPrimary focus:outline-none focus:border-secondary transition-colors duration-300"
+            className="w-full p-3 rounded-lg bg-nomad-background text-nomad-highlight border border-nomad-highlight focus:ring-2 focus:ring-nomad-accent outline-none font-mono"
           />
-        </div>
-
-        <div>
-          <label
-            htmlFor="email"
-            className="block text-textSecondary mb-2 font-mono"
-          >
-            Email
-          </label>
           <input
             type="email"
             id="email"
@@ -74,32 +59,24 @@ const Contact: React.FC = () => {
             value={formData.email}
             onChange={handleChange}
             required
-            className="w-full bg-primary/30 border border-textSecondary/20 rounded-lg px-4 py-2 text-textPrimary focus:outline-none focus:border-secondary transition-colors duration-300"
+            className="w-full p-3 rounded-lg bg-nomad-background text-nomad-highlight border border-nomad-highlight focus:ring-2 focus:ring-nomad-accent outline-none font-mono"
           />
         </div>
 
-        <div>
-          <label
-            htmlFor="message"
-            className="block text-textSecondary mb-2 font-mono"
-          >
-            Message
-          </label>
-          <textarea
-            id="message"
-            name="message"
-            value={formData.message}
-            onChange={handleChange}
-            required
-            rows={6}
-            className="w-full bg-primary/30 border border-textSecondary/20 rounded-lg px-4 py-2 text-textPrimary focus:outline-none focus:border-secondary transition-colors duration-300"
-          />
-        </div>
+        <textarea
+          id="message"
+          name="message"
+          rows={6}
+          value={formData.message}
+          onChange={handleChange}
+          required
+          className="w-full p-3 rounded-lg bg-nomad-background text-nomad-highlight border border-nomad-highlight focus:ring-2 focus:ring-nomad-accent outline-none font-mono mb-6"
+        />
 
         <div className="text-center">
           <button
             type="submit"
-            className="px-8 py-3 bg-secondary/10 border border-secondary text-secondary rounded-lg hover:bg-secondary/20 transition-colors duration-300"
+            className="px-8 py-3 bg-nomad-accent text-nomad-background rounded-xl font-bold font-mono shadow-glow hover:bg-nomad-accent/80 transition-colors duration-300"
           >
             Send Message
           </button>
@@ -107,10 +84,10 @@ const Contact: React.FC = () => {
       </form>
 
       <div className="mt-16 text-center">
-        <p className="text-textSecondary mb-4">Or reach out directly:</p>
+        <p className="text-nomad-highlight mb-4">Or reach out directly:</p>
         <a
           href="mailto:your.email@example.com"
-          className="text-secondary hover:underline"
+          className="text-nomad-accent hover:underline font-mono"
         >
           your.email@example.com
         </a>
