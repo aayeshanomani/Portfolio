@@ -16,9 +16,9 @@ const Navbar: React.FC = () => {
     <nav className="fixed w-full bg-nomad-primary/90 backdrop-blur-sm z-50 font-heading">
       <div className="container mx-auto px-4">
         <div className="flex justify-between items-center h-16">
-          <Link to="/" className="font-mono text-nomad-accent text-xl">
+          <Link to="/" className="font-mono text-nomad-accent text-xl flex items-center gap-2">
             <span className="font-bold">{'<'}</span>
-            Portfolio
+            <span className="font-extrabold tracking-wide">devNomad</span>
             <span className="font-bold">{'/>'}</span>
           </Link>
 
