@@ -6,6 +6,7 @@ import About from './components/About';
 import Projects from './components/Projects';
 import Blog from './components/Blog';
 import Contact from './components/Contact';
+import BlogContent from './components/BlogContent';
 
 const App: React.FC = () => {
   return (
@@ -18,6 +19,7 @@ const App: React.FC = () => {
             <Route path="/about" element={<About />} />
             <Route path="/projects" element={<Projects />} />
             <Route path="/blog" element={<Blog />} />
+            <Route path="/blog/building-while-working-at-amazon" element={<BlogContent />} />
             <Route path="/contact" element={<Contact />} />
           </Routes>
         </main>

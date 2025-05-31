@@ -28,6 +28,14 @@ const Projects: React.FC = () => {
       technologies: ["Game Development", "C#"],
       demo: "https://aayeshanomani.itch.io/one-piece-shoot",
       image: "/assets/one%20piece%20shoot.png"
+    },
+    {
+      title: "DevNomad CLI",
+      description: "An open-source command-line portfolio that introduces me in your terminal. Type `npx devnomad` to see an interactive summary of my work, projects, socials, and current focus — without opening a browser.",
+      technologies: ["Node.js", "TypeScript", "CLI", "Open Source"],
+      github: "https://github.com/Aayeshanomani/devnomad-cli",
+      demo: "https://www.npmjs.com/package/devnomad",
+      image: "/assets/devnomad%20cli.png"
     }
   ];
 

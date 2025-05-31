@@ -8,6 +8,55 @@ module.exports = {
   ],
   theme: {
     extend: {
+      typography: {
+        DEFAULT: {
+          css: {
+            maxWidth: 'none',
+            color: '#94a3b8',
+            h1: {
+              color: '#38bdf8',
+              fontWeight: '700',
+            },
+            h2: {
+              color: '#38bdf8',
+              fontWeight: '600',
+              marginTop: '2em',
+            },
+            h3: {
+              color: '#38bdf8',
+              fontWeight: '600',
+            },
+            strong: {
+              color: '#38bdf8',
+            },
+            a: {
+              color: '#38bdf8',
+              '&:hover': {
+                color: '#94a3b8',
+              },
+            },
+            code: {
+              color: '#38bdf8',
+              backgroundColor: 'rgba(31, 41, 55, 0.5)',
+              padding: '0.2em 0.4em',
+              borderRadius: '0.25em',
+              fontWeight: '400',
+            },
+            'code::before': {
+              content: '""',
+            },
+            'code::after': {
+              content: '""',
+            },
+            blockquote: {
+              color: '#94a3b8',
+              borderLeftColor: '#38bdf8',
+              backgroundColor: 'rgba(31, 41, 55, 0.3)',
+              fontStyle: 'normal',
+            },
+          },
+        },
+      },
       colors: {
         primary: "#0A192F",
         secondary: "#64FFDA",
@@ -35,5 +84,5 @@ module.exports = {
       },
     },
   },
-  plugins: [],
+  plugins: [require('@tailwindcss/typography')],
 };
